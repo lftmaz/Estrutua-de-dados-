@@ -4,8 +4,8 @@
 
 int main(void)
 {
-    int *prova_questoes, numero_questoes = 0, i, j, acertos, aprovado = 0;
-    float porcetagem_aprovacao, vetor_alunos[10], valor_questoes = 0;
+    int numero_questoes = 0, i, j, acertos, aprovado = 0;
+    float porcetagem_aprovacao = 0, vetor_alunos[10], valor_questoes = 0;
 
     printf("Quantas questoes possui a prova?");
     scanf("%d", &numero_questoes);
@@ -52,15 +52,17 @@ int main(void)
         vetor_alunos[i] = acertos * valor_questoes;
         acertos = 0;
 
-        printf("Nota do %i aluno: %.2f \n" ,i +1 , vetor_alunos[i]);
+        printf("Nota do %i aluno: %.2f \n" , i +1 , vetor_alunos[i]);
     }
 
     for(i = 0; i < 10; i++){
-        if(vetor_alunos[i] == 6.0){
+        if(vetor_alunos[i] >= 6.0){
             aprovado++;
         }
-        porcetagem_aprovacao = aprovado/100;
+        
     }
+
+    porcetagem_aprovacao = (aprovado/10) * 100;
 
     printf("A taxa de aprovação é: %.2f \n" , porcetagem_aprovacao);
 
@@ -69,5 +71,6 @@ int main(void)
         free(aluno[i]);
     }
     free(aluno);
+    
     return (0);
 }
