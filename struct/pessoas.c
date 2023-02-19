@@ -33,7 +33,7 @@ void imprimir(Pessoas *pessoa_impresso, int numero_pessoas)
     }
 }
 
-void altera_salario(Pessoas *pessoa_idade)
+void altera_idade(Pessoas *pessoa_idade)
 {
     printf("Digite o sua nova idade:\n");
     scanf("%d", &pessoa_idade->idade);
@@ -74,7 +74,7 @@ int main(void)
 
     dados(pessoa, qntd_pessoas);
     imprimir(pessoa, qntd_pessoas);
-    altera_salario(pessoa);
+    altera_idade(pessoa);
     maior_menor(pessoa, qntd_pessoas);
 
     free(pessoa);
