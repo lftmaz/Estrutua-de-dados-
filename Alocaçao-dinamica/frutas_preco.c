@@ -41,8 +41,6 @@ int main(void)
         scanf(" %s %f", (char *)frutas[linha] , &preco[linha]);
         tamanho[linha] = strlen(frutas[linha]);
         frutas[linha] = (char *)realloc(frutas[linha],tamanho[linha] * sizeof(char));
-        
-
     }
     
     imprimir(frutas,preco,qnt_frutas);
