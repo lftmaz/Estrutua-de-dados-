@@ -3,9 +3,9 @@
 
 int main()
 {
-    int sexo_masculino = 0,sexo_feminino = 0, homem_negado = 0,mulher_aprovado = 0, numero,i;
+    int sexo_masculino = 0,sexo_feminino = 0, homem_negado = 0,mulher_aprovado = 0, numero = 0 ,i;
     int *vetor_pessoas, *avaliacao;
-    float mulheres_porcetagem = 0, homens_porcetagem;
+    float mulheres_porcetagem = 0, homens_porcetagem = 0;
 
     vetor_pessoas = (int *)malloc(20 * sizeof(int));
 
@@ -53,7 +53,6 @@ int main()
             if (avaliacao[i] == 4)
             {
                 homem_negado++;
-                printf("%i" , homem_negado);
             }
             
         }
@@ -69,8 +68,8 @@ int main()
         }
     }
 
-    mulheres_porcetagem = (mulher_aprovado/sexo_feminino) * 100;
-    homens_porcetagem = (homem_negado/sexo_masculino) * 100;
+    mulheres_porcetagem =   (mulher_aprovado * 100)/ sexo_feminino;
+    homens_porcetagem =  (homem_negado * 100)/ sexo_masculino;
     
     printf("Porcetagem de mulheres que gostaram do produto: %f\n" , mulheres_porcetagem);
     printf("Porcetagem de homens que nao gostaram do produto: %f\n" , homens_porcetagem);
