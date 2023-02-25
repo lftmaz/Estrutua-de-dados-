@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include<string.h>
 
-void imprimir(char **nome, float *valor, int numero_frutas)
+void imprimir(char **nome, float *valor, int numero_frutas) // Imprimindo o preco e o nome das frutas
 {
     int i;
     for(i = 0; i < numero_frutas; i++)
@@ -14,11 +14,11 @@ void imprimir(char **nome, float *valor, int numero_frutas)
 
 int main(void)
 {
-    int qnt_frutas, linha;
+    int qnt_frutas, linha; // declarando variaveis 
     printf("Digite o numero de frutas:");
-    scanf("%d", &qnt_frutas);
+    scanf("%d", &qnt_frutas); // Descobrindo o numero de frutas que o usuario deseja
     int tamanho[qnt_frutas];
-    char **frutas = (char **)malloc(qnt_frutas * sizeof(char *));
+    char **frutas = (char **)malloc(qnt_frutas * sizeof(char *)); // Alocando a matriz
     if (frutas == NULL)
     {
         printf("Erro!");
@@ -29,7 +29,7 @@ int main(void)
         frutas[linha] = (char *)malloc(50 * sizeof(char));
     }
 
-    float *preco = (float *)malloc(qnt_frutas * sizeof(float));
+    float *preco = (float *)malloc(qnt_frutas * sizeof(float)); // Alocando o preco 
     if (preco == NULL)
     {
         exit(1);
@@ -38,14 +38,14 @@ int main(void)
     for (linha = 0; linha < qnt_frutas; linha++)
     {
         printf("Informe as frutas e o seu valor:");
-        scanf(" %s %f", (char *)frutas[linha] , &preco[linha]);
-        tamanho[linha] = strlen(frutas[linha]);
-        frutas[linha] = (char *)realloc(frutas[linha],tamanho[linha] * sizeof(char));
+        scanf(" %s %f", (char *)frutas[linha] , &preco[linha]); // Preenchendo a matriz com as frutas e o preco de cada uma
+        tamanho[linha] = strlen(frutas[linha]); // Pegando o tamnho das frutas com a funcao strlen
+        frutas[linha] = (char *)realloc(frutas[linha],tamanho[linha] * sizeof(char)); // Realocando a string char para conter o mesmo numero de caracteres da fruta
     }
     
-    imprimir(frutas,preco,qnt_frutas);
+    imprimir(frutas,preco,qnt_frutas); // Criando funcao para imprimir
 
-    for( linha = 0; linha < qnt_frutas; linha++){
+    for( linha = 0; linha < qnt_frutas; linha++){ // Liberando a memoria
         free(frutas[linha]);
     }
     free(frutas);
