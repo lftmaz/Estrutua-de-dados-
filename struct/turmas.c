@@ -69,6 +69,7 @@ void matricula_aluno(Turmas *turma, int matricula, char *nome) // Matriculando a
             turma->vagas--;
         } // Matriculando o aluno
     }
+    printf("Aluno matriculado com  sucesso!");
 }
 void lancar_notas(Turmas *turma) // Atribuir notas aos alunos
 {
@@ -130,6 +131,7 @@ void procura_turma(Turmas **turma, char id, int n) // Procurando uma turma espec
 
 int main(void)
 {
+    printf("Bem-vindo ao Programa de Gerenciamento de Turmas! Este programa gerencia as turmas ofertadas, fornecendo as funcionalidades de matricula, lancamento de notas e listagem de alunos.");
     int opcao = 0, cont = 0, matricula, i, salva_turma; // Declarando variaveis
     char id, nome[81];
     Turmas **turma = (Turmas **)malloc(MAX_TURMAS * sizeof(Turmas *)); // Alocando turma
@@ -148,6 +150,7 @@ int main(void)
         case 1:
             if (cont < MAX_TURMAS)
             {
+                printf("Criando nova turma...\n");
                 printf("Digite o ID da turma:");
                 scanf(" %c", &id);
                 turma[cont] = cria_turma(id); //Passando o id para criação da turma
