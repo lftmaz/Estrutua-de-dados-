@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct funcionario
+typedef struct funcionario // Declarando a struct
 {
     char nome[50];
     char cargo[50];
@@ -9,7 +9,7 @@ typedef struct funcionario
     int identificador;
 } Funcionario;
 
-void dados(Funcionario *funcionario, int numero_funcionarios)
+void dados(Funcionario *funcionario, int numero_funcionarios) // Função para coletar os dados de cada funcinario
 {
     int i;
     for(i = 0;i < numero_funcionarios; i++)
@@ -25,7 +25,7 @@ void dados(Funcionario *funcionario, int numero_funcionarios)
     }
 }
 
-void imprimir(Funcionario *funcionario_impresso, int numero_funcionarios)
+void imprimir(Funcionario *funcionario_impresso, int numero_funcionarios) // Função para imprimir os dados de cada funcionario
 {
     int i;
     for(i = 0; i < numero_funcionarios; i++)
@@ -37,18 +37,17 @@ void imprimir(Funcionario *funcionario_impresso, int numero_funcionarios)
     }
 }
 
-void altera_salario(Funcionario *funcionario_salario)
+void altera_salario(Funcionario *funcionario_salario) // Alterando o salario do primeiro funcionario para um novo escolhido pelo usuario
 {
     printf("Digite o seu novo salario:\n");
     scanf("%f", &funcionario_salario->salario);
 }
 
-void maior_menor(Funcionario *funcionario_maiormenor, int numero_funcionarios)
-{
+void maior_menor(Funcionario *funcionario_maiormenor, int numero_funcionarios) // Função para verificar o maior e o menor salario
     int i;
     float salario = 0, salario_menor = 99999999;
     int cargo = 0,cargomenor = 0;
-    for (i = 0; i < numero_funcionarios; i++)
+    for (i = 0; i < numero_funcionarios; i++)// Fazendo a verificação para saber quem possui o maior e menor salario e armazenando o cargo
     {
         if (funcionario_maiormenor[i].salario > salario)
         {
@@ -69,18 +68,18 @@ void maior_menor(Funcionario *funcionario_maiormenor, int numero_funcionarios)
 
 int main(void)
 {
-    Funcionario *funcionari;
+    Funcionario *funcionari; // Declarando variaveis
     int qntd_funcionarios;
-    printf("Digite o numero de funcionarios:\n ");
+    printf("Digite o numero de funcionarios:\n "); // Coletando a quantidade de funcionarios
     scanf("%d", &qntd_funcionarios);
 
-    funcionari = (Funcionario *)malloc(qntd_funcionarios * sizeof(Funcionario));
-
+    funcionari = (Funcionario *)malloc(qntd_funcionarios * sizeof(Funcionario)); // Alocando funcionarios
+    // Passando parâmetro das funções
     dados(funcionari, qntd_funcionarios);
     imprimir(funcionari, qntd_funcionarios);
     altera_salario(funcionari);
     maior_menor(funcionari, qntd_funcionarios);
 
-    free(funcionari);
+    free(funcionari); // Liberando a memoria
     return (0);
 }
