@@ -1,20 +1,20 @@
 #include<stdio.h>
 
-typedef union documentos
+typedef union documentos // Declarando a union
 {
     int cpf;
     int sus;
     int rg;
 }Documentos;
 
-typedef struct aluno
+typedef struct aluno // Declarando a struct
 {
     char nome[50];
     int matricula;
     Documentos doc;
 }Aluno;
 
-void imprimir(Aluno aluno , int caso){
+void imprimir(Aluno aluno , int caso){ // Funcao para imrprimir os dados do alunos
     printf("Nome do aluno: %s\n" , aluno.nome);
     printf("Sua matricula: %d \n" , aluno.matricula);
     if( caso == 1){
@@ -30,17 +30,17 @@ void imprimir(Aluno aluno , int caso){
 
 int main(void)
 {
-    Aluno *aluno;
+    Aluno *aluno; // Declarando variaveis
     int opcao;
-    printf("Informe o nome do aluno\n");
+    printf("Informe o nome do aluno\n"); // Colhendo os dados dos alunos
     scanf(" %[^\n]s" , aluno->nome);
     printf("Informe a matricula:\n");
     scanf("%d", &aluno->matricula);
 
-    printf("Informe o documento\n 1 - CPF\n 2 - RG\n 3 - SUS \nSua escolha:");
+    printf("Informe o documento\n 1 - CPF\n 2 - RG\n 3 - SUS \nSua escolha:"); // Colhendo a opocao de documento
     scanf("%d" , (int*) &opcao);
 
-    switch (opcao)
+    switch (opcao) //  Verificando qual a opcao foi escolhida e preenchendo a union
     {
     case 1:
         printf("Informe o CPF:\n");
