@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int **criaMatrizFloat(int linhas, int colunas)
+int **criaMatrizFloat(int linhas, int colunas) // Funcao para alocar a matriz
 {
     int **matriz = (int **)malloc(linhas * sizeof(int *));
     int linha;
@@ -14,12 +14,12 @@ int **criaMatrizFloat(int linhas, int colunas)
 
 int main(void)
 {
-    int linhas = 3;
+    int linhas = 3; // Declarando variaveis
     int colunas = 3;
-    int **matriz = criaMatrizFloat(linhas, colunas);
+    int **matriz = criaMatrizFloat(linhas, colunas); // Passando a matriz
     
     int i,j;
-    printf("Digite os valores para matriz: \n");
+    printf("Digite os valores para matriz: \n"); //Preenchendo a matriz
     for (i = 0; i < linhas; i++)
     {
         for (j = 0; j < colunas; j++)
@@ -28,7 +28,7 @@ int main(void)
         }
     }
 
-    for (i = 0; i < linhas; i++)
+    for (i = 0; i < linhas; i++) // Exibindo a matriz
     {
         printf("\n");
 
@@ -38,7 +38,7 @@ int main(void)
         }
     }
 
-    for (i = 0; i < linhas; i++)
+    for (i = 0; i < linhas; i++) // Desocupando a memoria
     {
         free(matriz[i]);
     }
