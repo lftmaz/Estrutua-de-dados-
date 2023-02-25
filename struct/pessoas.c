@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct pessoas
+typedef struct pessoas // Declarando a struct
 {
     char nome_pessoa[60];;
     int idade;
     int identificador;
 } Pessoas;
 
-void dados(Pessoas *pessoas, int numero_pessoas)
+void dados(Pessoas *pessoas, int numero_pessoas) // Coletando os dados das pessoas
 {
     int i;
     for(i = 0;i < numero_pessoas; i++)
@@ -22,7 +22,7 @@ void dados(Pessoas *pessoas, int numero_pessoas)
     }
 }
 
-void imprimir(Pessoas *pessoa_impresso, int numero_pessoas)
+void imprimir(Pessoas *pessoa_impresso, int numero_pessoas) // Imprimindo os dados das pessoas
 {
     int i;
     for(i = 0; i < numero_pessoas; i++)
@@ -33,13 +33,13 @@ void imprimir(Pessoas *pessoa_impresso, int numero_pessoas)
     }
 }
 
-void altera_idade(Pessoas *pessoa_idade)
+void altera_idade(Pessoas *pessoa_idade) // Alternado a idade da primeira pessoa
 {
     printf("Digite o sua nova idade:\n");
     scanf("%d", &pessoa_idade->idade);
 }
 
-void maior_menor(Pessoas *pessoa_maiormenor, int numero_pessoas)
+void maior_menor(Pessoas *pessoa_maiormenor, int numero_pessoas) // Verificando qual pessoa tem a maior e menor idade e salvando o nome  dela
 {
     int i;
     int idade = 0, idade_menor = 99999999;
@@ -65,18 +65,18 @@ void maior_menor(Pessoas *pessoa_maiormenor, int numero_pessoas)
 
 int main(void)
 {
-    Pessoas *pessoa;
+    Pessoas *pessoa; // Declarando variaveis
     int qntd_pessoas;
-    printf("Digite o numero de pessoas:\n ");
+    printf("Digite o numero de pessoas:\n "); // Coletando o numero de pessoas
     scanf("%d", &qntd_pessoas);
 
-    pessoa = (Pessoas *)malloc(qntd_pessoas * sizeof(Pessoas));
-
+    pessoa = (Pessoas *)malloc(qntd_pessoas * sizeof(Pessoas)); // Alocando o vetor pessoas
+    // Acessando as funções
     dados(pessoa, qntd_pessoas);
     imprimir(pessoa, qntd_pessoas);
     altera_idade(pessoa);
     maior_menor(pessoa, qntd_pessoas);
 
-    free(pessoa);
+    free(pessoa); // Liberando a memoria
     return (0);
 }
