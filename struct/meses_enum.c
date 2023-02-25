@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef enum meses{
+typedef enum meses{ // Declarando enum
     zero,
     janeiro,
     fevereiro,
@@ -17,7 +17,7 @@ typedef enum meses{
     dezembro
 } Meses;
 
-typedef struct data
+typedef struct data // Declarando a struct data 
 {
     int dia;
     int ano;
@@ -25,14 +25,14 @@ typedef struct data
 }Data;
 
 int main(void){
-    Data data;
+    Data data; // Declarando a variavel
     printf("Digite o dia:\n");
     scanf("%d" , &data.dia);
     printf("Digite:\n 1 - Janeiro\n 2 - Fevereiro\n 3 - Marco\n 4 - Abril\n 5 - Maio\n 6 - Junho\n 7 - Julho\n 8 - Agosto\n 9 - Setembro\n 10 - Outubro\n 11 - Novembro\n 12 - Dezembro\n");
     scanf("%d" , (int*)&data.mes);
     printf("Digite o ano:\n");
-    scanf("%d" , &data.ano);
-    switch (data.mes)
+    scanf("%d" , &data.ano); // Coletando os dados da struct e do enum
+    switch (data.mes) // Verificando qual a condição o enum entrar e exibindo a data
     {
     case 1:
         printf("%d/0%d/%d" ,data.dia, data.mes,data.ano);
@@ -74,5 +74,5 @@ int main(void){
         exit(1);
         break;
     }
-
+return (0);
 }
