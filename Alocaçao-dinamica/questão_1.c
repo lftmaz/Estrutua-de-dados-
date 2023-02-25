@@ -2,9 +2,9 @@
 #include<stdlib.h>
 
 int main(void){
-    int tamanho = 10,i;
+    int tamanho = 10,i; // Declarando variaveis
     int * vetor;
-    vetor = (int*) malloc(tamanho * sizeof(int));
+    vetor = (int*) malloc(tamanho * sizeof(int)); //Alocando memoria
     if (vetor == NULL)
     {
         printf("Erro!");
@@ -12,19 +12,19 @@ int main(void){
 
     }
 
-    for (i = 0; i < tamanho; i++)
+    for (i = 0; i < tamanho; i++) // Preenchendo vetor com o indice
     {
         vetor[i] = i;
     }
 
-    for (i = 0; i < tamanho; i++)
+    for (i = 0; i < tamanho; i++) // Exibindo o vetor
     {
        
         printf("%i \t", vetor[i]);
 
     }
 
-    free(vetor);
+    free(vetor); // Desocupando a memoria
 
     return(0);
 }
