@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-typedef enum situacao
+typedef enum situacao // Criando o enum que diz a situaçao do aluno
 {
     ativo,
     inativo,
@@ -8,7 +8,7 @@ typedef enum situacao
     
 } Situacao;
 
-typedef struct aluno
+typedef struct aluno // Criando a estrutura que diz o que aluno contem
 {
     char nome[50];
     int matricula;
@@ -17,9 +17,9 @@ typedef struct aluno
 
 } Aluno;
 
-void imprimir(Aluno aluno){
+void imprimir(Aluno aluno){ // Imprimindo os dados do aluno
 
-    if(aluno.opcao == ativo)
+    if(aluno.opcao == ativo) // Verificando em qual situação o aluno está
     {
     
         printf("O nome do aluno é :%s \t", aluno.nome);
@@ -53,15 +53,15 @@ void imprimir(Aluno aluno){
 
 int main(void)
 {
-    Aluno aluno;
-    printf("Informe o nome do aluno\n");
+    Aluno aluno; // Declando a variavel aluno
+    printf("Informe o nome do aluno\n"); // Colhendo os dados das struct
     scanf(" %[^\n]s", aluno.nome);
     printf("Informe a matricula:\n");
     scanf("%d", &aluno.matricula);
     printf("Informe o curso do aluno:\n");
     scanf(" %[^\n]s", aluno.curso);
 
-    printf("Digite\n 0 - Ativo\n 1 - Inativo\n 2 - Trancado\n Sua escolha: ");
+    printf("Digite\n 0 - Ativo\n 1 - Inativo\n 2 - Trancado\n Sua escolha: "); // Colhendo os dados da enum
     scanf("%d", (int*)&aluno.opcao);
 
     imprimir(aluno);
